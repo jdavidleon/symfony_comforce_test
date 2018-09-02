@@ -4,6 +4,43 @@
 
 {% block body %}
 
-	<h1>Hola mundo desde detalles del proceso</h1>
+	<h1>Detalles del proceso {{ process.processNumber }}</h1>
+	
+	<table class="table">
+	  <tbody>
+	    <tr>
+	      <th scope="row"># de proceso</th>
+	      <td>{{ process.processNumber }}</td>
+	    </tr>
+	    <tr>
+	      <th scope="row">Descripcion</th>
+	      <td>{{ process.description }}</td>
+	    </tr>
+	    <tr>
+	      <th scope="row">Fecha de Creación</th>
+	      <td>{{ process.dateCreate|date("m/d/Y") }}</td>
+	    </tr>
+	    <tr>
+	      <th scope="row">Sede</th>
+	      <td>{{ process.processPlace.Places }}</td>
+	    </tr>
+	    <tr>
+	      <th scope="row">Presupuesto (COP)</th>
+	      <td>$ {{ process.budget }}</td>
+	    </tr>
+	    <tr>
+	      <th scope="row">Presupuesto (USD)</th>
+	      <td>$ {{ process.CopToDollar(process.budget) }}</td>
+	    </tr>
+	    <tr>
+	      <th colspan="2">
+			<a class="btn btn-sm btn-info" href="{{ path('list') }}">Volver</a>
+	      	<a href="{{ path('editProcess', {'idProcess':process.id }) }}" class="btn btn-sm btn-warning">Editar</a>
+	      </th>
+	    </tr>
+	  </tbody>
+	</table>
+
+
 
 {% endblock %}

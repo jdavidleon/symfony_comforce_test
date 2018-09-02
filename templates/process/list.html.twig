@@ -4,6 +4,49 @@
 
 {% block body %}
 
-	<h1>Hola mundo desde process</h1>
+		<h1 class="my-3">Lista de Procesos</h1>
+
+		{% if db %}
+			<div class="alert alert-success" role="alert">
+			{% if db == 'add' %}
+				 Proceso creado
+			{% endif %}
+			{% if db == 'edit' %}
+				 Proceso Editado
+			{% endif %}
+			</div>
+		{% endif %}
+
+      	<div class="table-responsive">
+         	<table class="table table-striped table-sm">
+	            <thead>
+	               <tr>
+	                  <th>#</th>
+	                  <th>Número de Proceso</th>
+	                  <th>Descripción</th>
+	                  <th>Fecha de creación</th>
+	                  <th>Sede</th>
+	                  <th>Presupuesto (COP/USD)</th>
+	                  <th>Acciones</th>
+	               </tr>
+	            </thead>
+	            <tbody>
+	            	{% for p in process %}
+	               		<tr>
+		                  <td>{{ p.id }}</td>
+		                  <td>{{ p.processNumber }}</td>
+		                  <td>{{ p.description }}</td>
+		                  <td>{{ p.dateCreate|date("m/d/Y") }}</td>
+		                  <td>{{ p.processPlace }}</td>
+		                  <td>{{ p.budget }} Pesos ( USD {{ p.CopToDollar(p.budget) }} )</td>
+		                  <td>
+		                  	<a href="{{ path('detailsProcess', {'idProcess':p.id }) }}" class="btn btn-sm btn-success">Ver</a>
+		                  	<a href="{{ path('editProcess', {'idProcess':p.id }) }}" class="btn btn-sm btn-warning">Editar</a>
+		                  </td>
+		               </tr>
+					{% endfor %}
+	            </tbody>
+	        </table>
+    	</div>
 
 {% endblock %}
