@@ -1,0 +1,31 @@
+  {% form_theme form 'form/appForm.html.twig' %}
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Registro - COMFORCE</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{{ asset('css/signin.css') }}" rel="stylesheet">
+
+  </head>
+
+  <body class="text-center d-flex  flex-column  justify-content-center">
+    
+    <h2>Formulario de registro</h2>
+
+   
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+    <a href="{{ path('homepage') }}">Iniciar sesión</a>
+
+  </body>
+</html>
