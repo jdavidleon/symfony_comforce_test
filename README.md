@@ -1,8 +1,6 @@
 ## Symfony 4.1 - CRUD de aplicacion para gestion Procesos
 Es una aplicación simple que permite a los usuarios registrados agregar procesos, desarrollado por [jdavidleon](https://github.com/jdavidleon) usando el Framework de PHP Symfony.
 
-- [DEMO](https://unexpressive-govern.000webhostapp.com/)
-
 
 ### Incluye
 * Symfony 4.1 (https://symfony.com/doc/3.4/index.html#gsc.tab=0)
