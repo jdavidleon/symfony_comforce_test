@@ -113,12 +113,16 @@ class ProcessController extends AbstractController
     /**
      * @Route("/listByDate/{date}", name="byDate")
      */
-    public function deleteProcess(Request $request, $date=null)
+    public function listByDate(Request $request, $date=null)
     {   
         $em = $this->getDoctrine()->getManager();
         $repository = $em->getRepository(Process::class);
 
-        $process = $repository->findByDateCreate($date);
+        if ($date) {
+            $process = $repository->findByDateCreate($date);
+        }else{
+            $process = $repository->findAll();
+        }
 
         return $this->render('process/list.html.twig', [
             'process' => $process,
